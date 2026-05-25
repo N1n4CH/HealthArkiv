@@ -80,6 +80,7 @@ export async function fetchSymptomLogs(address: string): Promise<SymptomLog[]> {
     ])
     .withPayload(true)
     .withMetadata(true)
+    .withAttributes(true)
     .orderBy(desc('date', 'number'))
     .limit(100)
     .fetch()
@@ -144,6 +145,7 @@ export async function fetchBiomarkers(address: string): Promise<Biomarker[]> {
     ])
     .withPayload(true)
     .withMetadata(true)
+    .withAttributes(true)
     .orderBy(desc('date', 'number'))
     .limit(100)
     .fetch()
@@ -209,6 +211,7 @@ export async function fetchSharingGrants(address: string): Promise<SharingGrant[
     ])
     .withPayload(true)
     .withMetadata(true)
+    .withAttributes(true)
     .fetch()
 
   return result.entities
@@ -249,6 +252,7 @@ export async function fetchGrantsForDoctor(
       eq('grantedTo', doctorAddress.toLowerCase()),
     ])
     .withPayload(true)
+    .withAttributes(true)
     .fetch()
 
   return result.entities
